@@ -20,7 +20,7 @@ public class DragonTreasureAdd {
         }
     }
 
-    public void theMostExspensiveTreasure(){
+    public void theMostExpensiveTreasure(){
         Treasure highCostTreasure = treasures.get(0);
         for(Treasure treasure: treasures){
             if(highCostTreasure.getCost()<treasure.getCost()){
@@ -30,14 +30,16 @@ public class DragonTreasureAdd {
         System.out.print("the most expensive treasure is: "+highCostTreasure.getName() +"-$"+highCostTreasure.getCost());
     }
 
-    public void searchTreasure(int cost){
+    public void searchTreasure(double cost){
+        int flag = 0;
         for (Treasure treasure:treasures){
             if(treasure.getCost() == cost){
                 System.out.println(treasure.getName() + "-$"+treasure.getCost());
+                flag = 1;
             }
-            else{
-                System.out.println("No treasures found.");
-            }
+        }
+        if(flag == 0){
+            System.out.println("No treasures found.");
         }
 
     }

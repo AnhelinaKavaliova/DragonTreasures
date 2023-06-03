@@ -19,6 +19,41 @@ public class Main {
             app.addTreasure(new Treasure(name, cost));
         }
 
+        int choice = -1;
 
+        while (choice != 0) {
+            System.out.println("Dragon's Treasure App Menu");
+            System.out.println("1. View all treasures");
+            System.out.println("2. Find the most valuable treasure");
+            System.out.println("3. Find treasures with a specific value");
+            System.out.println("0. Exit");
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+                case 1:
+                    app.viewTreasures();
+                    break;
+                case 2:
+                    app.theMostExpensiveTreasure();
+                    break;
+                case 3:
+                    System.out.print("Enter the value to search for: ");
+                    double value = scanner.nextDouble();
+                    scanner.nextLine();
+                    app.searchTreasure(value);
+                    break;
+                case 0:
+                    System.out.println("Exiting the application...");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+
+            System.out.println();
+        }
+
+        scanner.close();
     }
 }
